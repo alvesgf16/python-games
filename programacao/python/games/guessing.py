@@ -4,13 +4,20 @@ print("*****************************")
 
 secret_number = 42
 
-guess_str = input("Enter your number: ")
-
+guess_str = input("Enter your guess: ")
 print("You entered", guess_str)
-
 guess = int(guess_str)
 
-if secret_number == int(guess):
+hit = guess == secret_number
+bigger = guess > secret_number
+smaller = guess < secret_number
+
+if hit:
     print("You're right!")
 else:
-    print("You're wrong...")
+    if bigger:
+        print("You missed! Your guess was bigger than the secret number.")
+    elif smaller:
+        print("You missed! Your guess was smaller than the secret number.")
+
+print("Game over")
