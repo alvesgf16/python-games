@@ -9,7 +9,12 @@ def play():
     guessed = False
 
     while not hanged and not guessed:
-        print('Playing...')
+        guess = input("Which letter? ")
+        guess = guess.strip()
+
+        for index, letter in enumerate(secret_word):
+            if guess.upper() == letter.upper():
+                print(f"Letter {letter} found at position {index}")
 
     print("Game over")
 
