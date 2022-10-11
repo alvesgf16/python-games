@@ -2,14 +2,43 @@ import random
 
 
 def play():
+    secret_number = random.randrange(1, 101)
+    total_rounds = 0
+    score = 100
+
+    display_opening_message()
+    display_level_selection_menu()
+
+    for round_number in range(1, total_rounds + 1):
+        display_round_info(round_number, total_rounds)
+
+        guess = ask_for_guess()
+
+        if guess < 1 or guess > 100:
+            print("You must enter a number between 1 and 100!")
+            continue
+
+        if guess == secret_number:
+            print(f"You got it right and scored {score} points!")
+            break
+        else:
+            adjust_score(score, guess, secret_number)
+
+            if round_number == total_rounds:
+                print(f"The secret number was {secret_number}. You scored {score} points.")
+            else:
+                display_hints(guess, secret_number)
+
+    print("Game over")
+
+
+def display_opening_message():
     print("*****************************")
     print("Welcome to the Guessing game!")
     print("*****************************")
 
-    secret_number = random.randrange(1, 101)
-    total_rounds = 0
-    score = 1000
 
+def display_level_selection_menu():
     print("Which difficulty?")
     print("(1) Easy   (2) Medium   (3) Hard")
 
@@ -25,36 +54,27 @@ def play():
         else:
             continue
 
-    for round_number in range(1, total_rounds + 1):
-        print(f"Round {round_number} of {total_rounds}")
 
-        guess_str = input("Enter a number between 1 and 100: ")
-        print("You entered", guess_str)
-        guess = int(guess_str)
+def display_round_info(round_number, total_rounds):
+    print(f"Round {round_number} of {total_rounds}")
 
-        if guess < 1 or guess > 100:
-            print("You must enter a number between 1 and 100!")
-            continue
 
-        hit = guess == secret_number
-        bigger = guess > secret_number
-        smaller = guess < secret_number
+def ask_for_guess():
+    guess_str = input("Enter a number between 1 and 100: ")
+    print("You entered", guess_str)
+    return int(guess_str)
 
-        if hit:
-            print(f"You got it right and scored {score} points!")
-            break
-        else:
-            lost_points = abs(secret_number - guess)
-            score -= lost_points
 
-            if round_number == total_rounds:
-                print(f"The secret number was {secret_number}. You scored {score} points.")
-            elif bigger:
-                print("You missed! Your guess was bigger than the secret number.")
-            elif smaller:
-                print("You missed! Your guess was smaller than the secret number.")
+def display_hints(guess, secret_number):
+    if guess > secret_number:
+        print("You missed! Your guess was bigger than the secret number.")
+    elif guess < secret_number:
+        print("You missed! Your guess was smaller than the secret number.")
 
-    print("Game over")
+
+def adjust_score(score, guess, secret_number):
+    lost_points = abs(secret_number - guess)
+    score -= lost_points
 
 
 if __name__ == "__main__":
