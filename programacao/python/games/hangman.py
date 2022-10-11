@@ -3,24 +3,33 @@ def play():
     print("Welcome to the Hangman game!")
     print("****************************")
 
-    secret_word = "banana"
-    guessed_letters = ["_" for character in range(len(secret_word))]
+    secret_word = "banana".upper()
+    guessed_letters = ["_" for _ in range(len(secret_word))]
 
-    hanged = False
-    guessed = False
+    errors = 0
+    hanged = errors == 6
+    guessed = "_" not in guessed_letters
 
     print(guessed_letters)
 
     while not hanged and not guessed:
         guess = input("Which letter? ")
-        guess = guess.strip()
+        guess = guess.strip().upper()
 
-        for index, letter in enumerate(secret_word):
-            if guess.upper() == letter.upper():
-                guessed_letters[index] = letter
+        if guess in secret_word:
+            for index, letter in enumerate(secret_word):
+                if guess == letter:
+                    guessed_letters[index] = letter
+        else:
+            errors += 1
+            print(f"Oops, you're wrong! {6 - errors} to go")
 
         print(guessed_letters)
 
+    if guessed:
+        print("You won!")
+    else:
+        print("You lost.")
     print("Game over")
 
 
