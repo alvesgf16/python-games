@@ -33,9 +33,10 @@ def play():
 
 
 def display_opening_message():
-    print("*****************************")
-    print("Welcome to the Guessing game!")
-    print("*****************************")
+    print("""*****************************
+Welcome to the Guessing game!
+*****************************
+""")
 
 
 def set_game_difficulty():
@@ -74,9 +75,11 @@ def ask_for_guess():
 
 def display_hints(guess, secret_number):
     if guess > secret_number:
-        print("You missed! Your guess was bigger than the secret number.")
+        print("""You missed! Your guess was bigger than the secret number.
+""")
     elif guess < secret_number:
-        print("You missed! Your guess was smaller than the secret number.")
+        print("""You missed! Your guess was smaller than the secret number.
+""")
 
 
 def adjust_score(score, guess, secret_number):

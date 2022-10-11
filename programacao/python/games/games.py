@@ -9,15 +9,16 @@ def pick_game():
 
 
 def display_opening_message():
-    print("****************************")
-    print("*** Pick a game to play! ***")
-    print("****************************")
+    print("""****************************)
+*** Pick a game to play! ***
+****************************
+""")
 
 
 def display_game_selection_menu():
     print("(1) Hangman   (2) Guess")
 
-    game = int(input("Which game?"))
+    game = int(input("Which game? "))
 
     if game == 1:
         clear_screen()

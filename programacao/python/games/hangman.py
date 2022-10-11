@@ -38,9 +38,10 @@ def play():
 
 
 def display_opening_message():
-    print("****************************")
-    print("Welcome to the Hangman game!")
-    print("****************************")
+    print("""****************************
+Welcome to the Hangman game!
+****************************
+""")
 
 
 def load_secret_word(filename="words.txt", first_valid_line=0):
