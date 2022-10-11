@@ -4,9 +4,12 @@ def play():
     print("****************************")
 
     secret_word = "banana"
+    guessed_letters = ["_" for character in range(len(secret_word))]
 
     hanged = False
     guessed = False
+
+    print(guessed_letters)
 
     while not hanged and not guessed:
         guess = input("Which letter? ")
@@ -14,7 +17,9 @@ def play():
 
         for index, letter in enumerate(secret_word):
             if guess.upper() == letter.upper():
-                print(f"Letter {letter} found at position {index}")
+                guessed_letters[index] = letter
+
+        print(guessed_letters)
 
     print("Game over")
 
