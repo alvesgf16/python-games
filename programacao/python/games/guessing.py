@@ -3,11 +3,10 @@ import random
 
 def play():
     secret_number = random.randrange(1, 101)
-    total_rounds = 0
     score = 100
 
     display_opening_message()
-    display_level_selection_menu()
+    total_rounds = set_game_difficulty()
 
     for round_number in range(1, total_rounds + 1):
         display_round_info(round_number, total_rounds)
@@ -38,7 +37,9 @@ def display_opening_message():
     print("*****************************")
 
 
-def display_level_selection_menu():
+def set_game_difficulty():
+    total_rounds = 0
+
     print("Which difficulty?")
     print("(1) Easy   (2) Medium   (3) Hard")
 
