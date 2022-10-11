@@ -1,4 +1,5 @@
 import random
+from clear import clear_screen
 
 
 def play():
@@ -55,6 +56,8 @@ def set_game_difficulty():
         else:
             continue
 
+    clear_screen()
+    return total_rounds
 
 def display_round_info(round_number, total_rounds):
     print(f"Round {round_number} of {total_rounds}")
@@ -62,6 +65,9 @@ def display_round_info(round_number, total_rounds):
 
 def ask_for_guess():
     guess_str = input("Enter a number between 1 and 100: ")
+
+    clear_screen()
+
     print("You entered", guess_str)
     return int(guess_str)
 

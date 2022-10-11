@@ -1,5 +1,6 @@
 import hangman
 import guessing
+from clear import clear_screen
 
 
 def pick_game():
@@ -19,8 +20,10 @@ def display_game_selection_menu():
     game = int(input("Which game?"))
 
     if game == 1:
+        clear_screen()
         hangman.play()
     elif game == 2:
+        clear_screen()
         guessing.play()
 
 

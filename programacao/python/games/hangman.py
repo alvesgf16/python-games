@@ -1,4 +1,5 @@
 import random
+from clear import clear_screen
 
 
 def play():
@@ -20,6 +21,8 @@ def play():
         else:
             errors += 1
 
+        clear_screen()
+        display_opening_message()
         draw_gallows(errors)
         print(" ".join(guessed_letters))
 
@@ -27,8 +30,10 @@ def play():
         guessed = "_" not in guessed_letters
 
     if guessed:
+        clear_screen()
         display_victory_message(secret_word)
     else:
+        clear_screen()
         display_defeat_message(secret_word)
 
 
