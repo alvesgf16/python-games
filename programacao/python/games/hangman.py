@@ -1,9 +1,17 @@
+import random
+
+
 def play():
     print("****************************")
     print("Welcome to the Hangman game!")
     print("****************************")
 
-    secret_word = "banana".upper()
+    with open("words.txt", "r") as file:
+        words = [line.strip() for line in file]
+
+    secret = random.randrange(0, len(words))
+    secret_word = words[secret].upper()
+
     guessed_letters = ["_" for _ in range(len(secret_word))]
 
     errors = 0
