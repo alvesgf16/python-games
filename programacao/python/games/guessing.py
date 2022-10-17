@@ -14,7 +14,7 @@ def play():
 
         guess = ask_for_guess()
 
-        if guess < 1 or guess > 100:
+        if not is_guess_in_range(guess):
             print("You must enter a number between 1 and 100!")
             continue
 
@@ -70,18 +70,27 @@ def ask_for_guess():
     return int(guess_str)
 
 
-def display_hints(guess, secret_number):
-    if guess > secret_number:
-        print("""You missed! Your guess was bigger than the secret number.
-""")
-    elif guess < secret_number:
-        print("""You missed! Your guess was smaller than the secret number.
-""")
+def is_guess_in_range(guess):
+    lower_limit = 1
+    upper_limit = 100
+
+    return lower_limit < guess < upper_limit
 
 
 def adjust_score(score, guess, secret_number):
     lost_points = abs(secret_number - guess)
     score -= lost_points
+def display_hints(guess, secret_number):
+    if guess > secret_number:
+        print(
+            """You missed! Your guess was bigger than the secret number.
+"""
+        )
+    elif guess < secret_number:
+        print(
+            """You missed! Your guess was smaller than the secret number.
+"""
+        )
 
 
 if __name__ == "__main__":
