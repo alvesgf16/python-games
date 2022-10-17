@@ -4,13 +4,11 @@ from clear import clear_screen
 
 def play():
     secret_number = random.randrange(1, 101)
+    total_rounds = set_game_difficulty()
     score = 100
 
-    display_opening_message()
-    total_rounds = set_game_difficulty()
-
-    for round_number in range(1, total_rounds + 1):
-        display_round_info(round_number, total_rounds)
+    for current_round in range(1, total_rounds + 1):
+        display_round_info(current_round, total_rounds)
 
         guess = ask_for_guess()
 
@@ -18,18 +16,20 @@ def play():
             print("You must enter a number between 1 and 100!")
             continue
 
-        if guess == secret_number:
-            print(f"You got it right and scored {score} points!")
-            break
-        else:
-            adjust_score(score, guess, secret_number)
+        score = adjust_score(score, guess, secret_number)
 
-            if round_number == total_rounds:
-                print(f"The secret number was {secret_number}. You scored {score} points.")
+        if current_round == total_rounds:
+            print(
+                f"The secret number was {secret_number}. "
+                f"You scored {score} points."
+                "Game over"
+            )
+        else:
+            if guess == secret_number:
+                print(f"You got it right and scored {score} points!")
+                break
             else:
                 display_hints(guess, secret_number)
-
-    print("Game over")
 
 
 def display_opening_message():
@@ -42,6 +42,7 @@ Welcome to the Guessing game!
 def set_game_difficulty():
     total_rounds = 0
 
+    display_opening_message()
     print("Which difficulty?")
     print("(1) Easy   (2) Medium   (3) Hard")
 
@@ -57,8 +58,9 @@ def set_game_difficulty():
     clear_screen()
     return total_rounds
 
-def display_round_info(round_number, total_rounds):
-    print(f"Round {round_number} of {total_rounds}")
+
+def display_round_info(current_round, total_rounds):
+    print(f"Round {current_round} of {total_rounds}")
 
 
 def ask_for_guess():
@@ -80,6 +82,9 @@ def is_guess_in_range(guess):
 def adjust_score(score, guess, secret_number):
     lost_points = abs(secret_number - guess)
     score -= lost_points
+    return score
+
+
 def display_hints(guess, secret_number):
     if guess > secret_number:
         print(
