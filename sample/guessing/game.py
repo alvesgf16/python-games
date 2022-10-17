@@ -26,16 +26,16 @@ def play():
 
         score = adjust_score(score, guess, secret_number)
 
-        if current_round == total_rounds:
-            print(
-                f"The secret number was {secret_number}. "
-                f"You scored {score} points."
-                "Game over"
-            )
+        if guess == secret_number:
+            print(f"You got it right and scored {score} points!")
+            break
         else:
-            if guess == secret_number:
-                print(f"You got it right and scored {score} points!")
-                break
+            if current_round == total_rounds:
+                print(
+                    f"The secret number was {secret_number}. "
+                    f"You scored {score} points."
+                )
+                print("Game over")
             else:
                 display_hints(guess, secret_number)
 
