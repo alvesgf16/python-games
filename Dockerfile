@@ -4,6 +4,6 @@ LABEL Maintainer="alvesgf16"
 
 WORKDIR /app
 
-COPY ./sample ./
+COPY . .
 
-CMD ["python", "./games.py"]
+CMD ["python", "./sample/games.py"]
