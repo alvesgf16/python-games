@@ -1,5 +1,5 @@
 import random
-from clear import clear_screen
+from helpers.clear import clear_screen
 
 
 def play():
@@ -30,21 +30,21 @@ def play():
         guessed = "_" not in guessed_letters
 
     if guessed:
-        clear_screen()
         display_victory_message(secret_word)
     else:
-        clear_screen()
         display_defeat_message(secret_word)
 
 
 def display_opening_message():
-    print("""****************************
+    print(
+        """****************************
 Welcome to the Hangman game!
 ****************************
-""")
+"""
+    )
 
 
-def load_secret_word(filename="words.txt", first_valid_line=0):
+def load_secret_word(filename="sample/hangman/words.txt", first_valid_line=0):
     with open(filename, "r") as file:
         words = [line.strip() for line in file]
 
@@ -110,8 +110,9 @@ _|___
     )
 
 
-def display_victory_message(secret_word):
-    print(f"""       ___________
+def display_victory_message():
+    print(
+        """       ___________
       '._==_==_=_.'
       .-\\\\:      /-.
      | (|:.     |) |
@@ -121,28 +122,31 @@ def display_victory_message(secret_word):
            ) (
          _.' '._
         '-------'
-Congratulations, you won!""")
+Congratulations, you won!"""
+    )
 
 
 def display_defeat_message(secret_word):
-    print(f"""    _______________         
+    print(
+        f"""    _______________
    /               \\
   /                 \\
 //                   \\/\\
 \\|   XXXX     XXXX   | /
- |   XXXX     XXXX   |/     
- |   XXX       XXX   |      
- |                   |      
+ |   XXXX     XXXX   |/
+ |   XXX       XXX   |
+ |                   |
  \\__      XXX      __/
    |\\     XXX     /|
-   | |           | |        
-   | I I I I I I I |        
-   |  I I I I I I  |        
+   | |           | |
+   | I I I I I I I |
+   |  I I I I I I  |
    \\_             _/
      \\_         _/
        \\_______/
 Gosh, you've been hanged!
-The secret word was {secret_word}""")
+The secret word was {secret_word}"""
+    )
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
-import hangman
-import guessing
-from clear import clear_screen
+import hangman.game as hangman
+import guessing.game as guessing
+from helpers.clear import clear_screen
 
 
 def pick_game():

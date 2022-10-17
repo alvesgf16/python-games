@@ -1,5 +1,5 @@
 import random
-from clear import clear_screen
+from helpers.clear import clear_screen
 
 
 def play():
@@ -33,10 +33,12 @@ def play():
 
 
 def display_opening_message():
-    print("""*****************************
+    print(
+        """*****************************
 Welcome to the Guessing game!
 *****************************
-""")
+"""
+    )
 
 
 def set_game_difficulty():
