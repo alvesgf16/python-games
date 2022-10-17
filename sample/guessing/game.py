@@ -3,6 +3,14 @@ from helpers.clear import clear_screen
 
 
 def play():
+    '''
+    Guessing game loop.
+
+    Each round, the player is asked to guess a number between 1 and 100. If
+    they guess wrong, they are given a hint about how the secret number
+    compares to their guess. If they get it right before running out of
+    rounds, they win, otherwise they lose.
+    '''
     secret_number = random.randrange(1, 101)
     total_rounds = set_game_difficulty()
     score = 100
@@ -42,6 +50,10 @@ Welcome to the Guessing game!
 
 
 def set_game_difficulty():
+    '''
+    Prompts the player to choose a difficulty and sets the number of rounds
+    for the game accordingly.
+    '''
     total_rounds = 0
 
     display_opening_message()
@@ -82,6 +94,10 @@ def is_guess_in_range(guess):
 
 
 def adjust_score(score, guess, secret_number):
+    '''
+    Subtracts the difference between the guess and the secret number from the
+    score.
+    '''
     lost_points = abs(secret_number - guess)
     score -= lost_points
     return score

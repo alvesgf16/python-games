@@ -16,6 +16,9 @@ def display_opening_message():
 
 
 def display_game_selection_menu():
+    '''
+    Prompts the player to choose a game and starts the chosen game.
+    '''
     games = [("Guess", guessing), ("Hangman", hangman)]
     for index, game in enumerate(games):
         print(f"({index + 1}) {game[0]}")

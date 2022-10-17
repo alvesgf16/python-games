@@ -3,6 +3,20 @@ from helpers.clear import clear_screen
 
 
 def play():
+    '''
+    Hangman game loop.
+
+    Initially, a secret word is chosen from a file of words and its length is
+    shown to the player as a string of blank lines (underscores), together with
+    the gallows in its initial stage.
+
+    Then, with each round until the player has either guessed the secret word
+    or made 6 mistakes, they are prompted to guess a letter. If they guessed
+    correctly, the letter is shown to them in every position where it appears
+    in the secret word, else the gallows drawing is updated with a body part.
+
+    Finally, the outcome of the game is shown to the player.
+    '''
     secret_word = load_secret_word()
     guessed_letters = initialize_guessed_letters(secret_word)
     errors = 0
@@ -45,6 +59,19 @@ Welcome to the Hangman game!
 
 
 def load_secret_word(filename="sample/hangman/words.txt", first_valid_line=0):
+    '''
+    Randomly select a word from a file. The file should contain one word per
+    line.
+
+        Parameters:
+            filename (str): The absolute pathname of the file from which the
+                            words will be drawn
+            first_valid_line (int): The first line in the file to be included
+                                    in the draw
+
+        Returns:
+            secret_word (str): The selected word in all capital letters
+    '''
     with open(filename, "r") as file:
         words = [line.strip() for line in file]
 
@@ -54,6 +81,7 @@ def load_secret_word(filename="sample/hangman/words.txt", first_valid_line=0):
 
 
 def initialize_guessed_letters(word):
+    '''Returns a list of blank lines for each letter in the word.'''
     return ["_" for _ in range(len(word))]
 
 
@@ -64,12 +92,22 @@ def ask_for_guess():
 
 
 def mark_correct_guess(guess, guessed_letters, secret_word):
+    '''
+    Add correct guesses to their correct positions in the guessed_letters list.
+
+        Parameters:
+            guess (str): The letter guessed by the player
+            guessed_letters (list): A list of guessed letters/blank lines
+            secret_word (str): Thw secret word to be guessed
+    '''
     for index, letter in enumerate(secret_word):
         if guess == letter:
             guessed_letters[index] = letter
 
 
 def draw_hangman(errors):
+    '''Receives the number of errors the player has made and prints the
+    corresponding gallows stage'''
     stages = [
         """ |
  |
