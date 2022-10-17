@@ -10,7 +10,7 @@ def play():
     guessed = False
 
     display_opening_message()
-    draw_gallows(errors)
+    draw_hangman(errors)
     print(" ".join(guessed_letters))
 
     while not hanged and not guessed:
@@ -23,7 +23,7 @@ def play():
 
         clear_screen()
         display_opening_message()
-        draw_gallows(errors)
+        draw_hangman(errors)
         print(" ".join(guessed_letters))
 
         hanged = errors == 6
@@ -69,6 +69,7 @@ def mark_correct_guess(guess, guessed_letters, secret_word):
             guessed_letters[index] = letter
 
 
+def draw_hangman(errors):
     stages = [
         """ |
  |
