@@ -16,16 +16,14 @@ def display_opening_message():
 
 
 def display_game_selection_menu():
-    print("(1) Hangman   (2) Guess")
+    games = [("Guess", guessing), ("Hangman", hangman)]
+    for index, game in enumerate(games):
+        print(f"({index + 1}) {game[0]}")
 
-    game = int(input("Which game? "))
+    chosen = int(input("\nWhich game? ")) - 1
 
-    if game == 1:
-        clear_screen()
-        hangman.play()
-    elif game == 2:
-        clear_screen()
-        guessing.play()
+    clear_screen()
+    games[chosen][1].play()
 
 
 if __name__ == "__main__":

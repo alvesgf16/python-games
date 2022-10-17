@@ -46,14 +46,11 @@ def set_game_difficulty():
     print("(1) Easy   (2) Medium   (3) Hard")
 
     while total_rounds == 0:
-        difficulty = int(input("Choose a level: "))
+        rounds_per_difficulty = {"1": 20, "2": 10, "3": 5}
+        difficulty = input("Choose a level: ")
 
-        if difficulty == 1:
-            total_rounds = 20
-        elif difficulty == 2:
-            total_rounds = 10
-        elif difficulty == 3:
-            total_rounds = 5
+        if difficulty in rounds_per_difficulty.keys():
+            total_rounds = rounds_per_difficulty[difficulty]
         else:
             continue
 

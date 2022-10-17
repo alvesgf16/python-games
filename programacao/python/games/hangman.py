@@ -69,55 +69,44 @@ def mark_correct_guess(guess, guessed_letters, secret_word):
             guessed_letters[index] = letter
 
 
-def draw_gallows(errors):
-    print("""  _______
- |/      |""")
-
-    if errors == 0:
-        print(""" |
+    stages = [
+        """ |
  |
  |
- |""")
-
-    if errors == 1:
-        print(""" |      (_)
+ |""",
+        """ |      (_)
  |
  |
- |""")
-
-    if errors == 2:
-        print(""" |      (_)
+ |""",
+        """ |      (_)
  |       |
  |       |
- |""")
-
-    if errors == 3:
-        print(""" |      (_)
+ |""",
+        """ |      (_)
  |      \\|
  |       |
- |""")
-
-    if errors == 4:
-        print(""" |      (_)
+ |""",
+        """ |      (_)
  |      \\|/
  |       |
- |""")
-
-    if errors == 5:
-        print(""" |      (_)
+ |""",
+        """ |      (_)
  |      \\|/
  |       |
- |      /""")
-
-    if errors == 6:
-        print(""" |      (_)
+ |      /""",
+        """ |      (_)
  |      \\|/
  |       |
- |      / \\""")
-
-    print(""" |            
-_|___         
-""")
+ |      / \\""",
+    ]
+    print(
+        f"""  _______
+ |/      |
+{stages[errors]}
+ |
+_|___
+"""
+    )
 
 
 def display_victory_message(secret_word):
