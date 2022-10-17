@@ -33,7 +33,7 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
 No terminal, clone o projeto: 
 
 ```
-git clone https://github.com/React-Bootcamp-WoMarkersCode/certificate-generator
+git clone https://github.com/alvesgf16/python-games.git
 ```
 
 Para subir e executar um container da aplicação:
