@@ -18,7 +18,7 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  Esse projeto é resultado dos primeiros cursos da Formação Python da <a href="https://www.alura.com.br/>Alura</a>. Trata-se de um menu de jogos pra rodar no terminal.
+  Esse projeto é resultado dos primeiros cursos da Formação Python da <a href="https://www.alura.com.br">Alura</a>. Trata-se de um menu de jogos pra rodar no terminal.
 </p>
 
 ## Pré-requisitos
