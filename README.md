@@ -5,7 +5,7 @@
   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
 </p>
 
-### Tópicos 
+### Sumário 
 
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
 
@@ -13,14 +13,12 @@
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
 
-... 
-
-Insira os tópicos do README em links para facilitar a navegação do leitor
+...
 
 ## Descrição do projeto 
 
 <p align="justify">
-  Descrição breve do projeto compondo um paragrafo ou dois. 
+  Esse projeto é resultado dos primeiros cursos da Formação Python da <a href="https://www.alura.com.br/>Alura</a>. Trata-se de um menu de jogos pra rodar no terminal.
 </p>
 
 ## Pré-requisitos
