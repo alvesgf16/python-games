@@ -13,13 +13,13 @@
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
 
-...
 
 ## Descrição do projeto 
 
 <p align="justify">
   Esse projeto é resultado dos primeiros cursos da Formação Python da <a href="https://www.alura.com.br">Alura</a>. Trata-se de um menu de jogos pra rodar no terminal.
 </p>
+
 
 ## Pré-requisitos
 
@@ -38,6 +38,7 @@ Para subir e executar um container da aplicação:
 ```
   docker image build -t python-games . && docker run -it python-games
 ```
+
 
 ## Imagens da aplicação em uso
 
